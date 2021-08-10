@@ -1,4 +1,4 @@
-// fichier contenant "logique métier"
+// logique métier pour les routes
 
 const Sauce = require('../models/sauces.models'); // import de Sauce (models, sauceSchema...)
 

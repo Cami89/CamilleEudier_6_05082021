@@ -4,7 +4,7 @@ const mongoose = require('mongoose'); // import de mongoose (bdd)
 const cors = require('cors');
 
 const routes = require('./routes/index'); // import du router
-const authRoutes = require('./routes/auth/auth.routes'); //import du router
+const userRoutes = require('./routes/user/user.routes'); //import du router
 
 const app = express(); // appel de la méthode express pour notre appli (permet de créer une appli express)
 
@@ -28,7 +28,7 @@ app.use(cors());
 
 app.use(bodyParser.json()); // transforme requête en objet JS
 
-app.use('/api', routes); //  va chercher le fichier route
-app.use('/api/auth', authRoutes)
+app.use('/api/sauces', routes); // va chercher le fichier route
+app.use('/api/auth', userRoutes) 
 
 module.exports = app; // export de l'appli express pour y accèder depuis autres fichiers
