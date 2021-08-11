@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {  // export du middleware
       const decodedToken = jwt.verify(token, 'PIiQUANTEp6op'); // décodage du token avec la clé secrette
       const userId = decodedToken.userId; // récupération du userid dans le token décodé
       if (req.body.userId && req.body.userId !== userId) { // si userid dans la requête et est différent
-        throw 'Idenifiant invalide'; // retour erreur
+        throw 'Identifiant invalide'; // retour erreur
       } else { // si ok
         next(); // passage de la requête au middleware suivant
       }

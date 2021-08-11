@@ -2,6 +2,7 @@ const express = require('express'); // import du module Express
 const bodyParser = require('body-parser'); // import de body parser (analyse les corps des requêtes et renseigne la propriété req.body)
 const mongoose = require('mongoose'); // import de mongoose (bdd)
 const cors = require('cors');
+const path = require('path'); // accès au système de fichier
 
 const routes = require('./routes/index'); // import du router
 const userRoutes = require('./routes/user/user.routes'); //import du router
@@ -28,7 +29,9 @@ app.use(cors());
 
 app.use(bodyParser.json()); // transforme requête en objet JS
 
+app.use('/images', express.static(path.join(__dirname, 'images'))); // middleware qui répond aux requêtes de /images - express.static permet accès à ressources statiques - créer sous dossier
 app.use('/api/sauces', routes); // va chercher le fichier route
 app.use('/api/auth', userRoutes) 
+
 
 module.exports = app; // export de l'appli express pour y accèder depuis autres fichiers
