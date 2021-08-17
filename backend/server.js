@@ -1,5 +1,7 @@
-const http = require('http');
-const app = require('./app');
+// pour lire le code coté serveur
+
+const http = require('http'); // import du package http de Node
+const app = require('./app'); //import express
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -13,7 +15,7 @@ const normalizePort = val => {
   return false;
 };
 const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+app.set('port', port); // méthode indiquant a express sur quel port il va tourner (17)
 
 const errorHandler = error => {
   if (error.syscall !== 'listen') {
@@ -35,7 +37,7 @@ const errorHandler = error => {
   }
 };
 
-const server = http.createServer(app);
+const server = http.createServer(app); // créa du server en page http via lecture de l'appli express 
 
 server.on('error', errorHandler);
 server.on('listening', () => {
@@ -44,4 +46,4 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
-server.listen(port);
+server.listen(port); // méthode écoute du serveur sur le port
