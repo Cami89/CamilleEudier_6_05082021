@@ -5,6 +5,7 @@ const bodyParser = require('body-parser'); // import de body parser (analyse les
 const mongoose = require('mongoose'); // import de mongoose (bdd)
 const cors = require('cors');
 const path = require('path'); // accès au système de fichier
+const helmet = require('helmet'); // import système sécurité
 
 const routes = require('./routes/index'); // import du router
 const userRoutes = require('./routes/user/user.routes'); //import du router
@@ -34,5 +35,6 @@ app.use(bodyParser.json()); // transformation requête en objet JS
 app.use('/images', express.static(path.join(__dirname, 'images'))); // middleware répondant aux req du /images + express.static permet accès à ressources statiques - créé sous dossier
 app.use('/api', routes); // va chercher le fichier route
 
+app.use(helmet());
 
 module.exports = app; // export d'app pour y accèder depuis autres fichiers (13)

@@ -10,5 +10,6 @@ router.put('/:id', auth, multer, saucesControllers.modifySauce);
 router.delete('/:id', auth, saucesControllers.deleteSauce);
 router.get('/:id', auth, saucesControllers.getOneSauce);
 router.get('/', auth, saucesControllers.getAllSauces);
+router.post('/:id/like', auth, saucesControllers.likeSauce);
 
 module.exports = router; // export du router du fichier (pour pouvoir l'utiliser ailleurs)
