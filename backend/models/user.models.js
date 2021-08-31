@@ -1,6 +1,8 @@
+// imports
 const mongoose = require('mongoose');
-const uniqueValidator = require ('mongoose-unique-validator'); // pour permettre un seul compte par email
+const uniqueValidator = require ('mongoose-unique-validator'); 
 
+// création du schéma de données pour chaque utilisateur
 const userSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -9,5 +11,5 @@ const userSchema = mongoose.Schema({
 // méthode uniqueValidator appliquée au schéma
 userSchema.plugin(uniqueValidator);
 
-//  export du schéma comme modèle Mongoose appelé « Auth »
+// export du schéma comme modèle Mongoose 
 module.exports = mongoose.model('User', userSchema);

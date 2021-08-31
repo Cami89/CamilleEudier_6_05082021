@@ -1,2 +1,4 @@
+// fichiers à ne pas enregistrer dans git
 /node_modules
 /.vscode
+/images

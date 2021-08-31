@@ -1,14 +1,16 @@
-const jwt = require('jsonwebtoken'); // pour vérifier tokens
+// Import 
+const jwt = require('jsonwebtoken'); 
 
-module.exports = (req, res, next) => {  // export du middleware
+// export du middleware
+module.exports = (req, res, next) => {  
     try { 
-      const token = req.headers.authorization.split(' ')[1]; // récupération du token dans le header autorisation
-      const decodedToken = jwt.verify(token, 'PIiQUANTEp6op'); // décodage du token avec la clé secrette
-      const userId = decodedToken.userId; // récupération du userid dans le token décodé   
+      const token = req.headers.authorization.split(' ')[1]; 
+      const decodedToken = jwt.verify(token, 'PIiQUANTEp6op'); 
+      const userId = decodedToken.userId; 
       req.userId = userId;
-      next(); // passage de la requête au middleware suivant
+      next(); 
       
-    } catch { // si erreur
+    } catch { 
       res.status(401).json({
         error: new Error('Requête non valide')
       });

@@ -1,7 +1,12 @@
-const router = require('express').Router(); // créa du router avec fonction Router d'express
-const userController = require('../../controllers/user.controller'); // controller pour associer fonctions aux routes
+// créa du router avec fonction Router d'express
+const router = require('express').Router();
 
-router.post('/signup', userController.signUp); // route avec méthode signup
-router.post('/login', userController.login); // route avec fonction login
+// controller pour associer fonctions aux routes
+const userController = require('../../controllers/user.controller'); 
 
-module.exports = router; // export du router
+// import des fonctions des routes
+router.post('/signup', userController.signUp); 
+router.post('/login', userController.login); 
+
+// export du router
+module.exports = router;  
