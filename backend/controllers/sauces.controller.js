@@ -96,6 +96,5 @@ exports.likeSauce = (req, res, next) => {
         default:
         console.error("Il y a eu un problème lors de votre requête, veillez réessayer");
         break;
-
     }
 }

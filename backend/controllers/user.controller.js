@@ -38,7 +38,6 @@ class userController {
                                 { expiresIn: '24h' } 
                             )
                         });
-
                     })
                     .catch(error => res.status(500).json({ error }))
             })

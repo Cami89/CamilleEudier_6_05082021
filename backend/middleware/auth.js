@@ -15,4 +15,5 @@ module.exports = (req, res, next) => {
         error: new Error('Requête non valide')
       });
     }
-  };
+};
+
